@@ -1,4 +1,4 @@
-# ⚡ WooServ Laravel ObjectId
+# ⚡ Laravel ObjectId
 
 Elegant, fast **ObjectId** generator for Laravel models —
 with automatic ID assignment, migration macro, and helper function.
@@ -168,7 +168,7 @@ but **ObjectId maintains slightly lower overhead** during generation and indexin
 ---
 
 **Conclusion:**
-`WooServ Laravel ObjectId` provides *faster generation*, *compact indexes*,
+`Laravel ObjectId` provides *faster generation*, *compact indexes*,
 and *timestamp-friendly IDs* — ideal for large-scale Laravel applications.
 
 ---
