@@ -1,0 +1,60 @@
+# Composer vendor directory
+/vendor/
+
+# PHPUnit & cache
+.phpunit.cache/
+coverage/
+phpunit.xml.bak
+.phpunit.result.cache
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Logs & temp
+*.log
+*.cache
+*.lock
+*.DS_Store
+Thumbs.db
+
+# OS-specific
+ehthumbs.db
+Desktop.ini
+
+# Node / Frontend tools (if added later)
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Build & packaging
+/build/
+dist/
+*.phar
+
+# Composer lock file (for libraries only)
+composer.lock
+
+# Env files (if present)
+.env
+.env.local
+.env.testing
+.env.example
+
+# GitHub Actions artifacts
+!.github/
+!.github/workflows/
+.github/*.log
+
+# Editor config
+*.code-workspace
+
+# Benchmark / profiling files
+benchmarks/
+profile.*
+benchmark.*

@@ -1,0 +1,11 @@
+name: Lint
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: 8.3 }
+      - run: composer global require squizlabs/php_codesniffer
+      - run: ~/.composer/vendor/bin/phpcs --standard=PSR12 src/

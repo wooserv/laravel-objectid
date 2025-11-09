@@ -1,0 +1,65 @@
+{
+  "name": "wooserv/laravel-objectid",
+  "description": "Elegant, fast ObjectId generator for Laravel models with automatic ID assignment, schema macro, and helper function.",
+  "type": "library",
+  "keywords": [
+    "laravel",
+    "eloquent",
+    "objectid",
+    "mongodb",
+    "unique id",
+    "model id",
+    "id generator",
+    "uuid",
+    "ulid",
+    "migration",
+    "database",
+    "wooServ",
+    "laravel objectid",
+    "laravel package",
+    "laravel macro"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/wooserv/laravel-objectid",
+  "support": {
+    "issues": "https://github.com/wooserv/laravel-objectid/issues",
+    "source": "https://github.com/wooserv/laravel-objectid"
+  },
+  "authors": [
+    {
+      "name": "WooServ Labs",
+      "email": "oss@wooserv.com"
+    },
+    {
+      "name": "Hamada Habib",
+      "email": "ihfbib@wooserv.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "illuminate/support": "^10.0|^11.0|^12.0",
+    "wooserv/php-objectid": "^1.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^9",
+    "phpunit/phpunit": "^10"
+  },
+  "autoload": {
+    "psr-4": {
+      "WooServ\\LaravelObjectId\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "WooServ\\LaravelObjectId\\ObjectIdServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --colors=always"
+  }
+}
