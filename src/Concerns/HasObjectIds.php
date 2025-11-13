@@ -3,26 +3,30 @@
 namespace WooServ\LaravelObjectId\Concerns;
 
 use WooServ\ObjectId\ObjectId;
+use Illuminate\Database\Eloquent\Concerns\HasUniqueStringIds;
 
 trait HasObjectIds
 {
-    protected static function bootHasObjectIds(): void
-    {
-        static::creating(function ($model) {
-            $key = $model->getKeyName();
-            if (empty($model->$key)) {
-                $model->$key = (string) ObjectId::generate();
-            }
-        });
-    }
+	use HasUniqueStringIds;
 
-    public function getIncrementing(): bool
-    {
-        return false;
-    }
+	/**
+	 * Generate a new unique key for the model.
+	 *
+	 * @return string
+	 */
+	public function newUniqueId(): string
+	{
+		return ObjectId::generate();
+	}
 
-    public function getKeyType(): string
-    {
-        return 'string';
-    }
+	/**
+	 * Determine if given key is valid.
+	 *
+	 * @param  mixed  $value
+	 * @return bool
+	 */
+	protected function isValidUniqueId($value): bool
+	{
+		return is_string($value) && ObjectId::isValid($value);
+	}
 }

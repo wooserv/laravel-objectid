@@ -52,7 +52,7 @@ class HasObjectIdsTest extends TestCase
 		    $table->timestamps();
 	    });
 
-        // Create another table with column name
+        // Create another table with a column name
         Schema::create('custom_ids', function (Blueprint $table) {
             $table->objectId('uuid', false); // Custom column (not primary)
             $table->string('title')->nullable();
