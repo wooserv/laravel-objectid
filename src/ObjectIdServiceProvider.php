@@ -19,12 +19,4 @@ class ObjectIdServiceProvider extends ServiceProvider
             return $col;
         });
     }
-
-    public function register(): void
-    {
-        // Optional: include helpers
-        if (file_exists(__DIR__ . '/helpers.php')) {
-            require_once __DIR__ . '/helpers.php';
-        }
-    }
 }
