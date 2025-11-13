@@ -16,14 +16,14 @@ class TestModel extends Model
 
 class MultipleObjectIdModel extends Model
 {
-	use HasObjectIds;
-	protected $guarded = [];
-	protected $table = 'multiple_object_ids';
+    use HasObjectIds;
+    protected $guarded = [];
+    protected $table = 'multiple_object_ids';
 
-	public function uniqueIds(): array
-	{
-		return ['id', 'reference'];
-	}
+    public function uniqueIds(): array
+    {
+        return ['id', 'reference'];
+    }
 }
 
 class HasObjectIdsTest extends TestCase
@@ -44,13 +44,13 @@ class HasObjectIdsTest extends TestCase
             $table->timestamps();
         });
 
-		// Create multiple object ids table
-	    Schema::create('multiple_object_ids', function (Blueprint $table) {
-			$table->objectId('id', true);
-		    $table->string('name')->nullable();
-			$table->objectId('reference', false);
-		    $table->timestamps();
-	    });
+        // Create multiple object ids table
+        Schema::create('multiple_object_ids', function (Blueprint $table) {
+            $table->objectId('id', true);
+            $table->string('name')->nullable();
+            $table->objectId('reference', false);
+            $table->timestamps();
+        });
 
         // Create another table with a column name
         Schema::create('custom_ids', function (Blueprint $table) {
@@ -75,12 +75,12 @@ class HasObjectIdsTest extends TestCase
         $this->assertMatchesRegularExpression('/^[a-f0-9]{24}$/i', $model->id);
     }
 
-	public function test_objectid_is_assigned_automatically_to_multiple_columns()
-	{
-		$model = MultipleObjectIdModel::create(['name' => 'Hamada']);
-		$this->assertMatchesRegularExpression('/^[a-f0-9]{24}$/i', $model->id);
-		$this->assertMatchesRegularExpression('/^[a-f0-9]{24}$/i', $model->reference);
-	}
+    public function test_objectid_is_assigned_automatically_to_multiple_columns()
+    {
+        $model = MultipleObjectIdModel::create(['name' => 'Hamada']);
+        $this->assertMatchesRegularExpression('/^[a-f0-9]{24}$/i', $model->id);
+        $this->assertMatchesRegularExpression('/^[a-f0-9]{24}$/i', $model->reference);
+    }
 
     public function test_multiple_models_have_unique_ids()
     {
